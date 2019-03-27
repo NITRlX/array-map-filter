@@ -11,7 +11,7 @@ d'entrée, auxquels on aura ajouté une propriété, dont la clé sera label, et
 une chaîne, dépendante de la valeur de rating :
 
 * Si `rating` est infériéur à 60, la valeur à attribuer à label sera "rotten".
-* Si `rating` est compris entre 60 et 75 (inclus), la valeur à attribuer à label sera "fresh".
+* Si `rating` est compris ent<re 60 et 75 (inclus), la valeur à attribuer à label sera "fresh".
 * Si `rating` est supérieur à 75, la valeur à attribuer à label sera "certified fresh".
 
 Exemple d'entrée:
@@ -60,6 +60,18 @@ En sortie:
  */
 
 function getMoviesFreshness(movies) {
+  return movies.map(movie => {
+    if (movie.rating < 60){
+      movie.label = 'rotten'
+      return movie
+    } else if (movie.rating < 76){
+      movie.label = 'fresh'
+      return movie
+    } else {
+      movie.label = 'certified fresh'
+      return movie
+    }
+  })
 }
 
 
